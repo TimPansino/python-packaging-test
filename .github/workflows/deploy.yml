@@ -23,16 +23,15 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -U pip
-          pip install -U wheel setuptools twine
+          pip install -U twine build
 
       - name: Build Source Package
         run: |
-          python setup.py sdist
-          pip wheel -w wheelhouse .
+          python -m build
 
       - name: Upload Package to PyPI
         run: |
-          twine upload --repository testpypi --non-interactive dist/*.tar.gz wheelhouse/*.whl
+          twine upload --repository testpypi --non-interactive dist/*.tar.gz dist/*.whl
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
