@@ -1,0 +1,4 @@
+include MANIFEST.in
+include README.md
+include LICENSE
+include packaging-test-482c583e907c/_version.py
