@@ -31,7 +31,7 @@ jobs:
 
       - name: Upload Package to PyPI
         run: |
-          twine upload --repository testpypi --non-interactive dist/*.tar.gz dist/*.whl
+          twine upload --repository testpypi --non-interactive dist/*.tar.gz
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
